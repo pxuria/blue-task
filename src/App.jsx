@@ -1,8 +1,15 @@
+import { Route, Routes } from "react-router-dom";
+import { Facilities, Home, NotFound, SharedLayout } from "./pages";
+
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/facilities" element={<Facilities />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
