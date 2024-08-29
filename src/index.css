@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
   object-fit: cover;
-  border-radius: 1rem;
+  border-radius: 0.6rem;
 }
 
 .swiper-slide span {
@@ -49,9 +49,29 @@
   background-color: #35ad8b;
 }
 .swiper-slide:nth-child(3n) {
-  background-color: #dc1132;
+  background-color: #dd1333;
 }
 
 body {
   overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e9e9e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4e91e6;
+  border-radius: 10rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2073df;
+}
+.rmdp-container {
+  width: 100%;
 }
