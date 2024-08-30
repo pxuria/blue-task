@@ -39,7 +39,7 @@ const Facilities = () => {
         </button>
       </div>
 
-      <div className="overflow-x-auto mt-10 rounded-lg facility-table">
+      <div className="overflow-x-auto my-10 rounded-lg facility-table">
         <table className="min-w-full divide-y divide-gray-200">
           <thead>
             <tr className="bg-[#efefef]">

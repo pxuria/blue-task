@@ -1,10 +1,10 @@
 import { createPortal } from "react-dom";
 
 const Modal = ({ onClose, children }) => {
-  document.querySelector("body").style.overflow = "hidden";
+  // document.querySelector("body").style.overflow = "hidden";
 
   const onBackdropHandler = () => {
-    document.querySelector("body").style.overflow = "auto";
+    // document.querySelector("body").style.overflow = "auto";
     onClose();
   };
 
