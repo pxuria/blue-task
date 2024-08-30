@@ -22,6 +22,23 @@
 .complete-step:not(:last-child):before {
   @apply bg-secondary;
 }
+.input {
+  @apply outline-none border-2 border-solid border-[#999] focus:border-secondary px-2 py-1 rounded-md w-full h-[40px] focus:bg-slate-100;
+}
+.input-error {
+  @apply border-red-600;
+}
+.next-btn {
+  @apply outline-none border-2 border-solid border-transparent bg-primary text-white font-medium text-base px-8 py-1 mt-4 rounded-md hover:border-secondary transition-all duration-200 ease-in hover:bg-white hover:text-secondary w-[calc(50%-0.5rem)] text-nowrap flex items-center justify-center;
+}
+
+.back-btn {
+  @apply outline-none border-2 border-solid bg-white text-grey font-medium text-base px-8 py-1 mt-4 rounded-md border-muted transition-all duration-200 ease-in hover:bg-muted hover:text-white w-[calc(50%-0.5rem)] text-nowrap flex items-center justify-center;
+}
+
+.error {
+  @apply text-red-600 text-sm font-normal;
+}
 
 .swiper {
   width: 240px;

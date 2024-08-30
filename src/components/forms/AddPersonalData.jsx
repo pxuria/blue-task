@@ -2,6 +2,7 @@ import { useState } from "react";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import DatePicker from "react-multi-date-picker";
+import { Buttons } from "../UI";
 
 const AddPersonalData = ({ nextStep, backStep }) => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -15,12 +16,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
           <label htmlFor="firstName" className="font-medium text-base text-[#222]">
             نام
           </label>
-          <input
-            type="text"
-            name="firstName"
-            id="firstName"
-            className="outline-none border-2 border-solid border-secondary px-2 py-1 rounded-md w-full h-[40px]"
-          />
+          <input type="text" name="firstName" id="firstName" className="input" />
         </div>
 
         {/* last name */}
@@ -28,12 +24,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
           <label htmlFor="lastName" className="font-medium text-base text-[#222]">
             نام خانوادگی
           </label>
-          <input
-            type="text"
-            name="lastName"
-            id="lastName"
-            className="outline-none border-2 border-solid border-secondary px-2 py-1 rounded-md w-full h-[40px]"
-          />
+          <input type="text" name="lastName" id="lastName" className="input" />
         </div>
 
         {/* national code */}
@@ -41,12 +32,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
           <label htmlFor="nationalCode" className="font-medium text-base text-[#222]">
             کد ملی
           </label>
-          <input
-            type="text"
-            name="nationalCode"
-            id="nationalCode"
-            className="outline-none border-2 border-solid border-secondary px-2 py-1 rounded-md w-full h-[40px]"
-          />
+          <input type="text" name="nationalCode" id="nationalCode" className="input" />
         </div>
 
         {/* phone number */}
@@ -54,12 +40,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
           <label htmlFor="phoneNumber" className="font-medium text-base text-[#222]">
             شماره تماس
           </label>
-          <input
-            type="text"
-            name="phoneNumber"
-            id="phoneNumber"
-            className="outline-none border-2 border-solid border-secondary px-2 py-1 rounded-md w-full h-[40px]"
-          />
+          <input type="text" name="phoneNumber" id="phoneNumber" className="input" />
         </div>
 
         {/* birth date */}
@@ -88,15 +69,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
         </div>
       </div>
       {/* buttons */}
-      <div className="flex items-center justify-start w-full mt-4 gap-4">
-        <button
-          onClick={nextStep}
-          type="button"
-          className="outline-none border-2 border-solid border-transparent bg-primary text-white font-medium text-base px-8 py-1 mt-4 rounded-md hover:border-secondary transition-all duration-200 ease-in hover:bg-white hover:text-secondary w-[calc(50%-0.5rem)]"
-        >
-          ادامه
-        </button>
-      </div>
+      <Buttons nextStep={nextStep} />
     </>
   );
 };
