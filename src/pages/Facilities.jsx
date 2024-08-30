@@ -33,7 +33,7 @@ const Facilities = () => {
         <button
           type="button"
           onClick={handleSearch}
-          className="text-white bg-secondary hover:text-primary hover:bg-white rounded transition-all ease-in duration-200 font-medium text-sm border-2 border-r-0 rounded-r-none border-secondary h-[40px] px-4"
+          className="outline-none text-white bg-secondary hover:text-primary hover:bg-white rounded transition-all ease-in duration-200 font-medium text-sm border-2 border-r-0 rounded-r-none border-secondary h-[40px] px-4"
         >
           جستجو
         </button>
