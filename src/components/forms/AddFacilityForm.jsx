@@ -22,7 +22,10 @@ const AddFacilityForm = () => {
     <div className="flex items-center mb-4 gap-4 w-full">
       <div className="rounded-lg border-2 border-muted border-solid py-8 px-6 w-full lg:w-3/5 relative backdrop-blur-xl overflow-hidden">
         <form onSubmit={handleSubmit(submitHandler)}>
-          <h2 className="text-center font-semibold text-2xl mb-10">افزودن تسهیلات در بلو بانک</h2>
+          <h2 className="text-center font-semibold text-2xl mb-10 leading-normal">
+            افزودن تسهیلات در
+            <span className="text-nowrap text-primary font-bold"> بلو بانک</span>
+          </h2>
           {/* stepper */}
           <Stepper steps={steps} currentStep={currentStep} />
 

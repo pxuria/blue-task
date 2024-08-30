@@ -1,6 +1,6 @@
 const Stepper = ({ steps, currentStep }) => {
   return (
-    <div className="w-full flex justify-between">
+    <div className="w-full flex justify-between items-start">
       {steps?.map((item, index) => (
         <div
           key={index}
@@ -9,7 +9,7 @@ const Stepper = ({ steps, currentStep }) => {
           }`}
         >
           <div className="step">{item.icon}</div>
-          <p className="font-medium text-base text-grey mt-2">{item.title}</p>
+          <p className="font-medium text-[10px] sm:text-base text-grey mt-2 text-nowrap text-center">{item.title}</p>
         </div>
       ))}
     </div>

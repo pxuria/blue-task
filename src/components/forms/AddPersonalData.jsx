@@ -9,9 +9,9 @@ const AddPersonalData = ({ nextStep, backStep }) => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-start gap-4 mt-6">
+      <div className="flex flex-col md:flex-row flex-wrap justify-start gap-4 mt-6">
         {/* first name */}
-        <div className="flex flex-col gap-2 items-start w-[calc(50%-0.5rem)]">
+        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)]">
           <label htmlFor="firstName" className="font-medium text-base text-[#222]">
             نام
           </label>
@@ -24,7 +24,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
         </div>
 
         {/* last name */}
-        <div className="flex flex-col gap-2 items-start w-[calc(50%-0.5rem)]">
+        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)]">
           <label htmlFor="lastName" className="font-medium text-base text-[#222]">
             نام خانوادگی
           </label>
@@ -37,7 +37,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
         </div>
 
         {/* national code */}
-        <div className="flex flex-col gap-2 items-start w-[calc(50%-0.5rem)] mt-2">
+        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)] mt-2">
           <label htmlFor="nationalCode" className="font-medium text-base text-[#222]">
             کد ملی
           </label>
@@ -50,7 +50,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
         </div>
 
         {/* phone number */}
-        <div className="flex flex-col gap-2 items-start w-[calc(50%-0.5rem)] mt-2">
+        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)] mt-2">
           <label htmlFor="phoneNumber" className="font-medium text-base text-[#222]">
             شماره تماس
           </label>
@@ -63,7 +63,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
         </div>
 
         {/* birth date */}
-        <div className="flex flex-col gap-2 items-start w-[calc(50%-0.5rem)] mt-2">
+        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)] mt-2">
           <label htmlFor="birthDate" className="font-medium text-base text-[#222]">
             تاریخ تولد
           </label>

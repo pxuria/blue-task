@@ -9,7 +9,7 @@ const FacilitySelection = ({ nextStep, backStep }) => {
   const [facility, setFacility] = useState({
     name: facilities[0].name,
     penaltyRate: facilities[0].penaltyRate,
-    percentageRate: facilities[0].percentageRate,
+    percentageRate: facilities[0].percentageRate || "",
     repaymentType: facilities[0].repaymentType[0].value,
     interestRate: facilities[0].interestRate || "",
   });
