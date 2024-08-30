@@ -1,51 +1,66 @@
 import { useState } from "react";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+import { useFormContext } from "react-hook-form";
 import DatePicker from "react-multi-date-picker";
 import { Buttons } from "../UI";
 
-const AddPersonalData = ({ nextStep, backStep }) => {
+const AddPersonalData = ({ nextStep }) => {
+  const {
+    register,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
   const [selectedDate, setSelectedDate] = useState(null);
-  // console.log(selectedDate.format());
+  const [phone, setPhone] = useState("");
+  const [nationalCode, setNationalCode] = useState("");
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setValue("birthDate", date?.format());
+  };
+
+  const numChangeHandler = (e, setFunc) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+    setFunc(e.target.value);
+  };
 
   return (
     <>
       <div className="flex flex-col md:flex-row flex-wrap justify-start gap-4 mt-6">
         {/* first name */}
-        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)]">
-          <label htmlFor="firstName" className="font-medium text-base text-[#222]">
+        <div className="input-group">
+          <label htmlFor="firstName" className="label">
             نام
           </label>
-          <input type="text" name="firstName" id="firstName" className="input" />
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            className={`input ${errors.firstName && "input-error"}`}
+            {...register("firstName", { required: true })}
+          />
+          {errors.firstName && <p className="error">{errors.firstName.message}</p>}
         </div>
 
         {/* last name */}
-        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)]">
-          <label htmlFor="lastName" className="font-medium text-base text-[#222]">
+        <div className="input-group">
+          <label htmlFor="lastName" className="label">
             نام خانوادگی
           </label>
-          <input type="text" name="lastName" id="lastName" className="input" />
-        </div>
-
-        {/* national code */}
-        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)] mt-2">
-          <label htmlFor="nationalCode" className="font-medium text-base text-[#222]">
-            کد ملی
-          </label>
-          <input type="text" name="nationalCode" id="nationalCode" className="input" />
-        </div>
-
-        {/* phone number */}
-        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)] mt-2">
-          <label htmlFor="phoneNumber" className="font-medium text-base text-[#222]">
-            شماره تماس
-          </label>
-          <input type="text" name="phoneNumber" id="phoneNumber" className="input" />
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            className={`input ${errors.lastName && "input-error"}`}
+            {...register("lastName", { required: true })}
+          />
+          {errors.lastName && <p className="error">{errors.lastName.message}</p>}
         </div>
 
         {/* birth date */}
-        <div className="flex flex-col gap-2 items-start w-full md:w-[calc(50%-0.5rem)] mt-2">
-          <label htmlFor="birthDate" className="font-medium text-base text-[#222]">
+        <div className="input-group mt-2">
+          <label htmlFor="birthDate" className="label">
             تاریخ تولد
           </label>
           <DatePicker
@@ -53,7 +68,7 @@ const AddPersonalData = ({ nextStep, backStep }) => {
             locale={persian_fa}
             value={selectedDate}
             placeholder="تاریخ تولد خود را انتخاب کنید"
-            onChange={setSelectedDate}
+            onChange={handleDateChange}
             name="birthDate"
             id="birthDate"
             style={{
@@ -66,6 +81,46 @@ const AddPersonalData = ({ nextStep, backStep }) => {
               height: "40px",
             }}
           />
+          {errors.birthDate && <p className="error">{errors.birthDate.message}</p>}
+        </div>
+
+        {/* phone number */}
+        <div className="input-group mt-2">
+          <label htmlFor="phoneNumber" className="label">
+            شماره تماس
+          </label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            id="phoneNumber"
+            className={`input ${errors.phoneNumber && "input-error"}`}
+            inputMode="numeric"
+            pattern="[0-9]*"
+            maxLength={11}
+            value={phone}
+            onInput={(e) => numChangeHandler(e, setPhone)}
+            {...register("phoneNumber", { required: true })}
+          />
+          {errors.phoneNumber && <p className="error">{errors.phoneNumber.message}</p>}
+        </div>
+
+        {/* national code */}
+        <div className="flex flex-col gap-2 items-start w-full mt-2">
+          <label htmlFor="nationalCode" className="label">
+            کد ملی
+          </label>
+          <input
+            type="text"
+            name="nationalCode"
+            id="nationalCode"
+            className={`input ${errors.nationalCode && "input-error"}`}
+            inputMode="numeric"
+            maxLength={10}
+            onInput={(e) => numChangeHandler(e, setNationalCode)}
+            value={nationalCode}
+            {...register("nationalCode", { required: true })}
+          />
+          {errors.nationalCode && <p className="error">{errors.nationalCode.message}</p>}
         </div>
       </div>
       {/* buttons */}

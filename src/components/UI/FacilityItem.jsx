@@ -1,29 +1,20 @@
 import { useState } from "react";
 
-const FacilityItem = ({
-  index,
-  facilities,
-  setFacilityData,
-  item,
-  setRepaymentTypeItem,
-  repaymentTypeItem,
-  setRepaymentTypeData,
-}) => {
+const FacilityItem = ({ index, facilities, item, selectedFacility, setRepaymentTypeData }) => {
   const [error, setError] = useState(false);
 
-  const setItem = (type, item) => {
-    // setFacilityData(item);
+  const setItem = (type) => {
     setError(false);
     setRepaymentTypeData(item, type);
-    // setRepaymentTypeItem(type.name);
   };
 
   const checkItemAndSelect = () => {
-    const foundType = item?.repaymentType?.find((type) => type.value === repaymentTypeItem.repaymentType);
+    const foundType = item?.repaymentType?.find((type) => type.value === selectedFacility.repaymentType);
 
-    if (foundType) setItem(foundType, item);
+    if (foundType) setItem(foundType);
     else setError(true);
   };
+
   return (
     <div
       onClick={checkItemAndSelect}
@@ -34,6 +25,7 @@ const FacilityItem = ({
       <div className="flex lg:flex-row flex-col lg:items-center items-start gap-4 flex-wrap lg:flex-nowrap">
         <span className="font-bold text-lg text-secondary text-nowrap">{item?.name}</span>
 
+        {/* RATES */}
         <div className="py-1 px-1 rounded-md flex flex-col justify-between items-start gap-2">
           {item?.interestRate && (
             <div className="flex items-center gap-1">
@@ -60,6 +52,7 @@ const FacilityItem = ({
             </div>
           )}
         </div>
+
         <div className="flex flex-row">
           <div className="flex flex-col items-center gap-2 rounded-lg p-1 max-w-[300px]">
             <span className="font-medium text-base text-nowrap text-primary w-fit relative">نوع بازپرداخت ها</span>
@@ -69,7 +62,7 @@ const FacilityItem = ({
                   key={i}
                   onClick={() => setItem(type, item)}
                   className={`font-semibold text-[13px] border-2 border-solid border-secondary transition-all ease-in-out duration-300 hover:bg-primary hover:text-white rounded-full py-1 px-2 text-nowrap ${
-                    type.value === repaymentTypeItem.repaymentType && item.id === repaymentTypeItem.facilityId
+                    type.value === selectedFacility.repaymentType && item.id === selectedFacility.facilityId
                       ? "text-white bg-primary"
                       : "text-primary bg-white"
                   }`}
@@ -84,13 +77,13 @@ const FacilityItem = ({
 
         <div className="lg:hidden bg-primary p-2 rounded-lg flex items-center gap-2 h-fit">
           <span className="text-white font-medium text-nowrap">مبلغ :</span>
-          <span className="text-primary font-medium bg-white rounded-[4px] py-[2px] px-2">{item?.amount}</span>
+          <span className="text-primary font-medium bg-white rounded-[4px] py-[2px] px-2 text-nowrap">{`${item?.amount} ریال`}</span>
         </div>
       </div>
 
       <div className="bg-primary p-2 rounded-lg hidden lg:flex items-center gap-2 h-fit">
         <span className="text-white font-medium text-nowrap">مبلغ :</span>
-        <span className="text-primary font-medium bg-white rounded-[4px] py-[2px] px-2">{item?.amount}</span>
+        <span className="text-primary font-medium bg-white rounded-[4px] py-[2px] px-2 text-nowrap">{`${item?.amount} ریال`}</span>
       </div>
     </div>
   );
