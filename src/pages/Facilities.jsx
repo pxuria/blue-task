@@ -19,9 +19,9 @@ const Facilities = () => {
     setFilteredFacilities(filterData);
   };
   return (
-    <div className="flex flex-col">
+    <div className="container mx-auto px-10 flex flex-col mt-8">
       {/* search input */}
-      <div className="flex items-center w-full md:w-1/3 mt-4">
+      <div className="flex items-center w-full md:w-1/3">
         <input
           type="search"
           name="search"
