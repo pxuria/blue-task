@@ -3,8 +3,8 @@ import logo from "../assets/logo.png";
 
 const Header = () => {
   return (
-    <header className="bg-[#FBFAFB] py-6">
-      <nav className="container mx-auto px-4 md:px-10 w-full flex justify-between items-start">
+    <header className="bg-[#FBFAFB] py-2 md:py-4 shadow">
+      <nav className="container mx-auto px-4 md:px-10 w-full flex justify-between items-center">
         <div className="flex items-center gap-4 md:gap-8">
           <NavLink
             to={"/"}

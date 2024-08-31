@@ -21,7 +21,7 @@ const Facilities = () => {
   return (
     <div className="flex flex-col">
       {/* search input */}
-      <div className="flex items-center w-1/3 mt-4">
+      <div className="flex items-center w-full md:w-1/3 mt-4">
         <input
           type="search"
           name="search"
@@ -65,16 +65,18 @@ const Facilities = () => {
                   <td className="facility-list-item text-muted text-sm">{facility.phoneNumber}</td>
                   <td className="facility-list-item text-muted text-sm">{facility.nationalCode}</td>
                   <td className="facility-list-item text-muted text-sm">
-                    <span className="text-white bg-primary px-4 py-2 rounded-lg">{facility.amount} ریال</span>
+                    <span className="text-white bg-primary px-2 md:px-4 py-1 md:py-2 rounded-lg">
+                      {facility.amount} ریال
+                    </span>
                   </td>
                   <td className="facility-list-item">
-                    <span className="text-primary px-4 py-1 rounded-md font-medium select-none bg-[#E3ECF8]">
+                    <span className="text-primary px-2 md:px-4 py-1 md:py-2 rounded-md font-medium select-none bg-[#E3ECF8]">
                       {facility.repaymentType} ماهه
                     </span>
                   </td>
                   <td className="facility-list-item text-muted text-sm">{facility.repaymentType}</td>
                   <td className="facility-list-item text-muted text-sm">
-                    <span className="text-white bg-primary px-4 py-2 rounded-lg">
+                    <span className="text-white bg-primary px-2 md:px-4 py-1 md:py-2 rounded-lg">
                       {facility.monthlyInstallment} ریال
                     </span>
                   </td>

@@ -48,10 +48,10 @@
   @apply text-red-600 text-sm font-normal -mt-1;
 }
 .facility-head-item {
-  @apply px-6 py-4 text-sm font-semibold text-center select-none text-nowrap;
+  @apply px-4 md:px-6 py-4 text-sm font-semibold text-center select-none text-nowrap;
 }
 .facility-list-item {
-  @apply px-6 py-6 text-center text-nowrap font-medium;
+  @apply px-4 md:px-6 py-4 md:py-6 text-center text-nowrap font-medium;
 }
 .swiper {
   width: 240px;
